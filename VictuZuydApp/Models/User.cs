@@ -8,11 +8,8 @@ using SQLite;
 namespace VictuZuydApp.Models
 {
     [Table("User")]
-    public class User
+    public class User : TableData
     {
-        [PrimaryKey, AutoIncrement]
-        [Column("Id")]
-        public int Id { get; set; }
         [Column("Username")]
         public string Username { get; set; }
         [Column("Password")]

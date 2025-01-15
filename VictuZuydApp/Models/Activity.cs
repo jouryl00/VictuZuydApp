@@ -9,11 +9,8 @@ using SQLite;
 namespace VictuZuydApp.Models
 {
     [Table("Activity")]
-    public class Activity
+    public class Activity : TableData
     {
-        [PrimaryKey, AutoIncrement]
-        [Column("Id")]
-        public int Id { get; set; }
         [Column("Name")]
         public string Name { get; set; }
         [Column("Description")]

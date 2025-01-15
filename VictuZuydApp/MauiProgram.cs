@@ -16,10 +16,20 @@ namespace VictuZuydApp
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            string dbPath = Constants.DatabasePath;
+
+            // Register services
+            builder.Services.AddSingleton(new DatabaseService(dbPath));
+            builder.Services.AddSingleton<Repos.IBaseRepository<Models.Event>, Repos.BaseRepository<Models.Event>>();
+            builder.Services.AddSingleton<Repos.IBaseRepository<Models.Activity>, Repos.BaseRepository<Models.Activity>>();
+            builder.Services.AddSingleton<Repos.IBaseRepository<Models.User>, Repos.BaseRepository<Models.User>>();
+            builder.Services.AddSingleton<ViewModels.MainPageViewModel>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
         }
     }
+
 }

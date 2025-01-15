@@ -8,16 +8,13 @@ using SQLite;
 namespace VictuZuydApp.Models
 {
     [Table("Event")]
-    public class Event
+    public class Event : TableData
     {
-        [PrimaryKey, AutoIncrement]
-        [Column("Id")]
-        public int Id { get; set; }
+
         [Column("Name")]
         public string Name { get; set; }
         [Column("Description")]
         public string Description { get; set; }
-
         [Column("Date")]
         public DateTime Date { get; set; }
         [Column("Location")]
